@@ -107,3 +107,16 @@ sys_uptime(void)
   release(&tickslock);
   return xticks;
 }
+
+uint64
+sys_hello(void)
+{
+struct proc *p = myproc();
+// A kernel-side message — printed with cprintf (runs in kernel)
+printf("kernel: hello() called by pid %d (running in kernel)\n", p->pid);
+// Optionally perform other kernel-only actions here, e.g.:
+// - allocate kernel memory
+// - inspect process fields
+// Keep it short and safe.
+return 0; // return value visible to the user caller
+}
