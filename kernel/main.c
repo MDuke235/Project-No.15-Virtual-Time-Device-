@@ -13,6 +13,7 @@ main()
   if(cpuid() == 0){
     consoleinit();
     printfinit();
+    clockinit(); // add clock which initializes virtual clock device
     printf("\n");
     printf("xv6 kernel is booting\n");
     printf("\n");

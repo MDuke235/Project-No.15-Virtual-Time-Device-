@@ -13,6 +13,7 @@ OBJS = \
   $K/main.o \
   $K/vm.o \
   $K/proc.o \
+  $K/clock.o \
   $K/swtch.o \
   $K/trampoline.o \
   $K/trap.o \
@@ -127,6 +128,7 @@ UPROGS=\
 	$U/_cat\
 	$U/_echo\
 	$U/_forktest\
+	$U/_scheduler\
 	$U/_hello\
 	$U/_grep\
 	$U/_init\

@@ -22,6 +22,12 @@ void            consoleinit(void);
 void            consoleintr(int);
 void            consputc(int);
 
+// clock.c
+void            clockinit(void);
+void            update_virtual_time(void);
+int             clockread(int, uint64, int);
+int             clockwrite(int, uint64, int);
+
 // exec.c
 int             kexec(char*, char**);
 

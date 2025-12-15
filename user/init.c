@@ -20,6 +20,10 @@ main(void)
     mknod("console", CONSOLE, 0);
     open("console", O_RDWR);
   }
+  // Create the clock device node (Major 2, Minor 1)
+  if(open("clock", O_RDWR) < 0){
+    mknod("clock", 2, 1); // We don't need to keep it open, just create the node
+  }
   dup(0);  // stdout
   dup(0);  // stderr
 

@@ -81,9 +81,9 @@ usertrap(void)
     kexit(-1);
 
   // give up the CPU if this is a timer interrupt.
-  if(which_dev == 2)
+  if(which_dev == 2){
     yield();
-
+  }
   prepare_return();
 
   // the user page table to switch to, for trampoline.S
@@ -164,6 +164,9 @@ kerneltrap()
 void
 clockintr()
 {
+  // Call your new function here to update the virtual clock
+  update_virtual_time(); // <--- ADD THIS LINE
+
   if(cpuid() == 0){
     acquire(&tickslock);
     ticks++;
@@ -171,10 +174,8 @@ clockintr()
     release(&tickslock);
   }
 
-  // ask for the next timer interrupt. this also clears
-  // the interrupt request. 1000000 is about a tenth
-  // of a second.
-  w_stimecmp(r_time() + 1000000);
+  // ask for the next timer interrupt...
+  w_stimecmp(r_time() + 5000000);
 }
 
 // check if it's an external interrupt or software interrupt,
