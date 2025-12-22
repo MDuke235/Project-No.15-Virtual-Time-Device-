@@ -129,6 +129,7 @@ UPROGS=\
 	$U/_echo\
 	$U/_forktest\
 	$U/_scheduler\
+	$U/_uptime\
 	$U/_hello\
 	$U/_grep\
 	$U/_init\
